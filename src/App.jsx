@@ -3,6 +3,7 @@ import OverviewPage from './views/Overview/OverviewPage';
 import ProductsPage from './views/Products/ProductsPage';
 import Sidebar from './components/Sidebar';
 import UsersPage from './views/Users/UsersPage';
+import SalesPage from './views/Sales/SalesPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/' element={<OverviewPage />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/users' element={<UsersPage />} />
+        <Route path='/sales' element={<SalesPage />} />
       </Routes>
     </div>
   );
