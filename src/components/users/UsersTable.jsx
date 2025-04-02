@@ -27,7 +27,7 @@ const UsersTable = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}>
-      <div className='flex justify-between items-center mb-6'>
+      <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-left sm:items-center mb-6'>
         <h2 className='text-xl font-semibold text-gray-100'>Users</h2>
         <div className='relative'>
           <input

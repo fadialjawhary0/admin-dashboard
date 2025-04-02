@@ -18,9 +18,7 @@ const ProductsTable = () => {
   const handleSearch = e => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    const filtered = PRODUCT_DATA.filter(
-      product => product?.name?.toLowerCase()?.includes(term) || product?.category?.toLowerCase()?.includes(term),
-    );
+    const filtered = PRODUCT_DATA.filter(product => product?.name?.toLowerCase()?.includes(term) || product?.category?.toLowerCase()?.includes(term));
     setFilteredProducts(filtered);
   };
 
@@ -30,7 +28,7 @@ const ProductsTable = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}>
-      <div className='flex justify-between items-center mb-6'>
+      <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-left sm:items-center mb-6'>
         <h2 className='text-xl font-semibold text-gray-100'>Product List</h2>
         <div className='relative'>
           <input
@@ -49,25 +47,17 @@ const ProductsTable = () => {
           <thead>
             <tr>
               <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Name</th>
-              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>
-                Category
-              </th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Category</th>
               <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Price</th>
               <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Stock</th>
               <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Sales</th>
-              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>
-                Actions
-              </th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Actions</th>
             </tr>
           </thead>
 
           <tbody className='divide-y divide-gray-700'>
             {filteredProducts?.map(product => (
-              <motion.tr
-                key={product?.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}>
+              <motion.tr key={product?.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                 <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{product?.name}</td>
                 <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{product.category}</td>
                 <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>${product.price.toFixed(2)}</td>
