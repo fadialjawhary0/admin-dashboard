@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { SIDEBAR_LINKS } from '../constants/SidebarLinks.const';
@@ -8,7 +8,9 @@ const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
-    <motion.div className={`relative z-10 transition-all duration-300 flex-shrink-0 ${isSidebarOpen ? 'w-64' : 'w-20'}`} animate={{ width: isSidebarOpen ? 256 : 80 }}>
+    <motion.div
+      className={`relative z-10 transition-all duration-300 flex-shrink-0 ${isSidebarOpen ? 'w-64' : 'w-20'}`}
+      animate={{ width: isSidebarOpen ? 256 : 80 }}>
       <div className='h-full bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 flex flex-col border-r border-gray-700'>
         <motion.button
           whileHover={{ scale: 1.1 }}
